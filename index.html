@@ -6,14 +6,16 @@
     <title>Will You Be My Valentine?</title>
     <style>
       body {
-        font-family: "Arial", sans-serif;
+        font-family: "Great Vibes", cursive;
         margin: 0;
         padding: 0;
         background: linear-gradient(to bottom, #ff6f6f, #fbcaca);
         display: flex;
         justify-content: center;
-        align-items: center;
-        height: 100vh;
+        align-items: flex-start; /* Start at the top of the page */
+        height: auto; /* Allow content to determine the height */
+        min-height: 100vh; /* Ensure it at least covers the viewport */
+        overflow-y: auto; /* Enable vertical scrolling */
       }
 
       .container {
@@ -24,6 +26,7 @@
         border-radius: 15px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         max-width: 400px;
+        max-height: 950px;
         width: 100%;
       }
 
@@ -67,10 +70,18 @@
   </head>
   <body>
     <div class="container">
-      <h1>Will You Be My Valentine?</h1>
+      <img
+        src="images/title.png"
+        alt="title"
+        style="
+          width: 400px;
+          height: 200px;
+          object-fit: cover;
+        "
+      />
       <p>
-        Katie, you make every day brighter and every moment more special. I
-        can’t imagine spending this Valentine’s Day without you by my side. 💕
+        Hi baby, I love you so much!!! Valentine's day is coming honeypie,
+        would you make me the happiest man and spend that day with me? 💕
       </p>
       <div style="text-align: center; margin: 20px 0">
         <img
@@ -95,8 +106,8 @@
       </div>
       <div class="signature">
         <p>
-          With all my love,<br />
-          [Your Name]
+          I love you baby :D,<br />
+          (you better click yes)
         </p>
       </div>
     </div>
