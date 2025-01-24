@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- comment   -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,52 +7,163 @@
     <style>
       body {
         font-family: "Arial", sans-serif;
-        background-color: #ff75b7;
-        color: #d1007f;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #ff6f6f, #fbcaca);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
         text-align: center;
-        padding: 50px;
+        background-color: #ffffff;
+        padding: 20px 30px;
+        border: 2px solid #ffcccc;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        width: 100%;
       }
 
       h1 {
-        font-size: 3rem;
-        color: #ff4d94;
+        color: #ff4d4d;
+        font-size: 2.5rem;
         margin-bottom: 20px;
       }
 
-      .heart {
-        font-size: 4rem;
-        color: #ff1a75;
+      p {
+        font-size: 1.2rem;
+        color: #666;
         margin-bottom: 30px;
       }
 
-      .question {
-        font-size: 2rem;
-        color: #ff3399;
-        margin-bottom: 40px;
-      }
-
-      .btn {
-        background-color: #ff80bf;
+      button {
+        background-color: #ff4d4d;
         color: white;
-        font-size: 1.2rem;
-        padding: 15px 30px;
         border: none;
-        border-radius: 10px;
+        border-radius: 25px;
+        padding: 10px 20px;
+        font-size: 1rem;
         cursor: pointer;
-        text-transform: uppercase;
+        transition: background-color 0.3s ease, transform 0.3s ease;
       }
 
-      .btn:hover {
-        background-color: #ff66b2;
+      button:hover {
+        background-color: #e63939;
+      }
+
+      #no-button {
+        position: absolute;
+      }
+
+      .signature {
+        margin-top: 30px;
+        font-size: 0.9rem;
+        color: #999;
       }
     </style>
   </head>
-
   <body>
-    <img src = "images/cat.jpg"  alt = "Picture of cat"><br>
-    <h1>Happy Valentine's Day, Katie!</h1>
-    <div class="heart">💖</div>
-    <p class="question">Will you be my Valentine?</p>
-    <button class="btn">Yes, of course! 💕</button>
+    <div class="container">
+      <h1>Will You Be My Valentine?</h1>
+      <p>
+        Katie, you make every day brighter and every moment more special. I
+        can’t imagine spending this Valentine’s Day without you by my side. 💕
+      </p>
+      <div style="text-align: center; margin: 20px 0">
+        <img
+          id="valentine-image"
+          src="images/initial.jpg"
+          alt="A romantic illustration"
+          style="
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+          "
+        />
+      </div>
+      <div style="display: flex; gap: 100px">
+        <button
+          onclick="window.location.href='accepted.html'"
+          style="margin-left: 125px"
+        >
+          Yes
+        </button>
+        <button id="no-button" style="margin-left: 225px">No</button>
+      </div>
+      <div class="signature">
+        <p>
+          With all my love,<br />
+          [Your Name]
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const noButton = document.getElementById("no-button");
+      const valentineImage = document.getElementById("valentine-image");
+      const container = document.querySelector(".container");
+
+      const images = [
+        "images/1.PNG",
+        "images/2.jpg",
+        "images/3.PNG",
+        "images/4.jpg",
+        "images/5.PNG",
+        "images/6.JPG",
+        "images/7.PNG",
+        "images/8.gif",
+        "images/9.PNG",
+        "images/10.jpg", 
+        "images/11.jpg",
+        "images/12.jpg",
+        "images/13.jpg",
+        "images/13.PNG",
+        "images/14.jpg",
+        "images/16.jpg",
+        "images/17.PNG",
+        "images/18.jpg",
+        "images/19.JPG",
+        "images/20.JPG",
+        "images/21.jpg",
+        "images/22.jpg",
+        "images/23.jpg",
+        "images/24.jpg",
+        "images/25.jpg",
+        "images/26.jpg",
+        "images/27.jpg",
+        "images/28.JPG",
+        "images/29.PNG",
+        "images/30.jpg",
+        "images/31.jpg",
+        "images/32.PNG",
+        "images/33.JPG",
+        "images/34.png",
+        "images/35.gif",
+      ];
+      let currentIndex = 0;
+
+      noButton.addEventListener("mouseenter", () => {
+        // Cycle through images
+        if (currentIndex < images.length - 1) {
+            currentIndex++;
+            valentineImage.src = images[currentIndex];
+        }
+
+        // Move the button when hovered
+        const containerRect = container.getBoundingClientRect();
+        const buttonRect = noButton.getBoundingClientRect();
+
+        const maxX = containerRect.width - buttonRect.width;
+        const maxY = containerRect.height - buttonRect.height;
+
+        const newX = (Math.random() * 2 - 1) * 150;
+        const newY = (Math.random() * 2 - 1) * 150;
+
+        noButton.style.transform = `translate(${newX}px, ${newY}px)`;
+      });
+    </script>
   </body>
 </html>
